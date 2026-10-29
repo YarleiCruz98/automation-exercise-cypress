@@ -56,7 +56,7 @@ describe('Catálogo e assinatura', () => {
           cy.wrap($card).find('.productinfo').should('be.visible');
         });
       cy.get('.features_items .productinfo p').should(($names) => {
-        const actualNames = [...$names].map((element) => element.textContent.trim()).sort();
+        const actualNames = $names.toArray().map((element) => element.textContent.trim()).sort();
         expect(actualNames).to.deep.eq(expectedNames);
       });
     });
