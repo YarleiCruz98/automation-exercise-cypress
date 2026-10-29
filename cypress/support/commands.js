@@ -77,7 +77,7 @@ Cypress.Commands.add('cleanupUser', (user) => {
 
 Cypress.Commands.add('addFirstProduct', () => {
   cy.get('.features_items .product-image-wrapper').first().within(() => {
-    cy.get('.productinfo p').invoke('text').as('productName');
+    cy.get('.productinfo p').invoke('text').as('productName', { type: 'static' });
     cy.get('.productinfo a.add-to-cart').click();
   });
   cy.get('#cartModal').should('be.visible');
