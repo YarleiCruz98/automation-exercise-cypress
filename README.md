@@ -71,13 +71,15 @@ git push -u origin main
 4. Aguarde o workflow terminar. Confira os dez testes e baixe o relatório. Corrija qualquer falha antes da entrega.
 5. Envie o ZIP e a URL real do repositório na plataforma até **31/10/2026 às 23:59:59**, conforme o enunciado. O ZIP fornecido já exclui `node_modules`.
 
-## Validação desta entrega
+## Validação e evidências
 
-- Verificação de sintaxe dos arquivos JavaScript: aprovada.
-- Instalação dos pacotes npm com lockfile, sem executar scripts de instalação: aprovada.
-- Conferência HTTP no site real: criação e remoção de conta via API, login e acesso ao checkout e pagamento realizados.
-- **Execução Cypress ponta a ponta: pendente.** Neste ambiente, o download do binário do Cypress retornou uma página HTML “Site Unavailable”, impedindo abrir o navegador. As conferências anteriores não substituem uma execução E2E.
-- **Execução GitHub Actions e URL de repositório: pendentes de publicação.** Não foi produzido relatório de testes aprovados nem evidência de pipeline executada. O workflow e o reporter estão configurados para gerá-los quando a suíte executar.
+O projeto está publicado em https://github.com/YarleiCruz98/automation-exercise-cypress.
+
+- Sintaxe JavaScript e instalação das dependências do lockfile verificadas.
+- Testes E2E executados no Chrome pelo GitHub Actions.
+- Consulte o status e os relatórios da execução correspondente ao commit que será entregue: https://github.com/YarleiCruz98/automation-exercise-cypress/actions.
+- O artefato de cada execução contém o relatório Mochawesome e os vídeos; falhas também produzem screenshots. Não confunda relatórios de tentativas anteriores com o resultado do código mais recente.
+- No ambiente usado para preparar o projeto, o download local do Cypress retornou “Site Unavailable”; por isso, a validação em navegador foi transferida para o GitHub Actions.
 
 ## Referências
 
