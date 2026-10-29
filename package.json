@@ -1,0 +1,23 @@
+{
+  "name": "automation-exercise-tcc",
+  "version": "1.0.0",
+  "description": "Trabalho individual — dez cenários Cypress no Automation Exercise",
+  "scripts": {
+    "test": "cypress run",
+    "test:chrome": "cypress run --browser chrome",
+    "cy:open": "cypress open",
+    "check": "node scripts/check.cjs"
+  },
+  "keywords": [],
+  "author": "Yarlei Silva Santos Alves Cruz",
+  "license": "UNLICENSED",
+  "type": "commonjs",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "cypress": "15.5.0",
+    "cypress-mochawesome-reporter": "4.0.2"
+  }
+}

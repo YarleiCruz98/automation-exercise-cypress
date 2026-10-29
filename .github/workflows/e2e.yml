@@ -1,0 +1,41 @@
+name: Cypress E2E
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: e2e-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  e2e:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Instalar dependências do lockfile
+        run: npm ci
+      - name: Verificar sintaxe
+        run: npm run check
+      - name: Executar os dez casos em Chrome
+        run: npm run test:chrome
+      - name: Disponibilizar relatórios e evidências
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-report-${{ github.run_number }}
+          path: |
+            cypress/reports/
+            cypress/screenshots/
+            cypress/videos/
+          if-no-files-found: warn
+          retention-days: 14
